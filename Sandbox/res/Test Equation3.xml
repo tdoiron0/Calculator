@@ -1,0 +1,11 @@
+<math display = 'block'>
+  <apply>
+    <eq/>
+    <cn>5</cn>
+    <apply>
+      <plus/>
+      <ci>x</ci>
+      <cn>2</cn>
+    </apply>
+  </apply>
+</math>

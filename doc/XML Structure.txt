@@ -1,0 +1,13 @@
+-problem 
+  -instructions 
+    -int of index to corrosponding function in vector array 
+  -data 
+    -function declarations 
+      -piecewise list of equations and intervals where they apply 
+      -regular function 
+      -function data tree w/ every node named "member" that has an attribute of type
+    -function values 
+    -variable values 
+    -graphs 
+      -defined by list of functions 
+    -

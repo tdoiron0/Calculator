@@ -1,0 +1,20 @@
+*Add class with two operands("2x", "x") created 
+*Add::value() is called 
+*tries to convert 2x to an identifer and fails, returning the input 
+*tries to convert x to a multiplication and returns new Mult class with a value of "1x" 
+*Add::process("2x", "1x") called 
+*types checked if they are the same 
+*Mult::add() called
+*Mult::equal() called to check if multiplication identities are the same, returns true
+*indexes through Mult class operands, finding numbers to add together or copies anything else 
+*Mult::add() returns new Mult class with a value of "3x"
+*Add::process("2x", "1x") returns same Mult class with a value of "3x" 
+*Add::value() returns same Mult class with a value of "3x" 
+*Finished
+
+*Add class with two Add class operands("2x + 1", "x + 2") created 
+*Add::value() is called 
+*No conversions 
+*Add::process("2x + 1", "x + 2") called 
+*Add::add() called 
+*

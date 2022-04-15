@@ -1,0 +1,142 @@
+﻿  Allocator.cpp
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\memberbase.h(29): warning C4251: 'ENlib::Member::trash': class 'std::vector<std::shared_ptr<ENlib::Member>,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'ENlib::Member'
+          with
+          [
+              _Ty=std::shared_ptr<ENlib::Member>
+          ]
+  c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\memberbase.h(29): note: see declaration of 'std::vector<std::shared_ptr<ENlib::Member>,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=std::shared_ptr<ENlib::Member>
+          ]
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\memberbase.h(56): warning C4018: '<': signed/unsigned mismatch
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\debug\log.h(18): warning C4251: 'ENlib::Log::s_CoreLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'ENlib::Log'
+  c:\vs\c++\projects\calculator++\v0.4\equationninja\vendor\spdlog\include\spdlog\details\registry.h(34): note: see declaration of 'std::shared_ptr<spdlog::logger>'
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\debug\log.h(19): warning C4251: 'ENlib::Log::s_ClientLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'ENlib::Log'
+  c:\vs\c++\projects\calculator++\v0.4\equationninja\vendor\spdlog\include\spdlog\details\registry.h(34): note: see declaration of 'std::shared_ptr<spdlog::logger>'
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\container\number.h(12): warning C4251: 'ENlib::Number::m_Value': class 'std::vector<double,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'ENlib::Number'
+          with
+          [
+              _Ty=double
+          ]
+  c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\container\number.h(12): note: see declaration of 'std::vector<double,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=double
+          ]
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\operator\operator.h(9): warning C4251: 'ENlib::Operator::m_Operands': class 'std::vector<std::shared_ptr<ENlib::Member>,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'ENlib::Operator'
+          with
+          [
+              _Ty=std::shared_ptr<ENlib::Member>
+          ]
+  c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\memberbase.h(29): note: see declaration of 'std::vector<std::shared_ptr<ENlib::Member>,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=std::shared_ptr<ENlib::Member>
+          ]
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\operator\operator.h(18): warning C4018: '<': signed/unsigned mismatch
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\instr\instrbase.h(8): warning C4251: 'ENlib::Instr::exp': class 'std::vector<ENlib::Member *,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'ENlib::Instr'
+          with
+          [
+              _Ty=ENlib::Member *
+          ]
+  c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\objectfac.h(28): note: see declaration of 'std::vector<ENlib::Member *,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=ENlib::Member *
+          ]
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\instr\instrbase.h(9): warning C4251: 'ENlib::Instr::cond': class 'std::vector<ENlib::Member *,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'ENlib::Instr'
+          with
+          [
+              _Ty=ENlib::Member *
+          ]
+  c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\objectfac.h(28): note: see declaration of 'std::vector<ENlib::Member *,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=ENlib::Member *
+          ]
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\problem.h(17): warning C4251: 'ENlib::Problem::m_Data': class 'std::vector<std::shared_ptr<ENlib::Member>,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'ENlib::Problem'
+          with
+          [
+              _Ty=std::shared_ptr<ENlib::Member>
+          ]
+  c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\memberbase.h(29): note: see declaration of 'std::vector<std::shared_ptr<ENlib::Member>,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=std::shared_ptr<ENlib::Member>
+          ]
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\allocator.h(21): warning C4251: 'ENlib::Allocator::trash': class 'std::vector<ENlib::Problem *,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'ENlib::Allocator'
+          with
+          [
+              _Ty=ENlib::Problem *
+          ]
+  c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\allocator.h(21): note: see declaration of 'std::vector<ENlib::Problem *,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=ENlib::Problem *
+          ]
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\allocator.cpp(16): warning C4018: '<': signed/unsigned mismatch
+  Number.cpp
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\memberbase.h(29): warning C4251: 'ENlib::Member::trash': class 'std::vector<std::shared_ptr<ENlib::Member>,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'ENlib::Member'
+          with
+          [
+              _Ty=std::shared_ptr<ENlib::Member>
+          ]
+  c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\memberbase.h(29): note: see declaration of 'std::vector<std::shared_ptr<ENlib::Member>,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=std::shared_ptr<ENlib::Member>
+          ]
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\memberbase.h(56): warning C4018: '<': signed/unsigned mismatch
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\debug\log.h(18): warning C4251: 'ENlib::Log::s_CoreLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'ENlib::Log'
+  c:\vs\c++\projects\calculator++\v0.4\equationninja\vendor\spdlog\include\spdlog\details\registry.h(34): note: see declaration of 'std::shared_ptr<spdlog::logger>'
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\debug\log.h(19): warning C4251: 'ENlib::Log::s_ClientLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'ENlib::Log'
+  c:\vs\c++\projects\calculator++\v0.4\equationninja\vendor\spdlog\include\spdlog\details\registry.h(34): note: see declaration of 'std::shared_ptr<spdlog::logger>'
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\container\number.h(12): warning C4251: 'ENlib::Number::m_Value': class 'std::vector<double,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'ENlib::Number'
+          with
+          [
+              _Ty=double
+          ]
+  c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\container\number.h(12): note: see declaration of 'std::vector<double,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=double
+          ]
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\container\number.cpp(27): warning C4018: '<': signed/unsigned mismatch
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\container\number.cpp(84): warning C4018: '<': signed/unsigned mismatch
+  Add.cpp
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\memberbase.h(29): warning C4251: 'ENlib::Member::trash': class 'std::vector<std::shared_ptr<ENlib::Member>,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'ENlib::Member'
+          with
+          [
+              _Ty=std::shared_ptr<ENlib::Member>
+          ]
+  c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\memberbase.h(29): note: see declaration of 'std::vector<std::shared_ptr<ENlib::Member>,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=std::shared_ptr<ENlib::Member>
+          ]
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\memberbase.h(56): warning C4018: '<': signed/unsigned mismatch
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\operator\operator.h(9): warning C4251: 'ENlib::Operator::m_Operands': class 'std::vector<std::shared_ptr<ENlib::Member>,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'ENlib::Operator'
+          with
+          [
+              _Ty=std::shared_ptr<ENlib::Member>
+          ]
+  c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\memberbase.h(29): note: see declaration of 'std::vector<std::shared_ptr<ENlib::Member>,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=std::shared_ptr<ENlib::Member>
+          ]
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\operator\operator.h(18): warning C4018: '<': signed/unsigned mismatch
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\debug\log.h(18): warning C4251: 'ENlib::Log::s_CoreLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'ENlib::Log'
+  c:\vs\c++\projects\calculator++\v0.4\equationninja\vendor\spdlog\include\spdlog\details\registry.h(34): note: see declaration of 'std::shared_ptr<spdlog::logger>'
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\debug\log.h(19): warning C4251: 'ENlib::Log::s_ClientLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'ENlib::Log'
+  c:\vs\c++\projects\calculator++\v0.4\equationninja\vendor\spdlog\include\spdlog\details\registry.h(34): note: see declaration of 'std::shared_ptr<spdlog::logger>'
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\operator\add.cpp(26): warning C4018: '<': signed/unsigned mismatch
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\operator\add.cpp(46): warning C4018: '<': signed/unsigned mismatch
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\operator\add.cpp(48): warning C4018: '>': signed/unsigned mismatch
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\operator\add.cpp(89): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+c:\vs\c++\projects\calculator++\v0.4\equationninja\src\equationninja\problem datas\members\operator\add.cpp(105): warning C4715: 'ENlib::Add::equal': not all control paths return a value
+     Creating library ..\bin\Debug-windows-x86\EquationNinja\EquationNinja.lib and object ..\bin\Debug-windows-x86\EquationNinja\EquationNinja.exp
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  EquationNinja.vcxproj -> C:\VS\C++\Projects\Calculator++\v0.4\EquationNinja\..\bin\Debug-windows-x86\EquationNinja\EquationNinja.dll

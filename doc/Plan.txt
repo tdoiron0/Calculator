@@ -1,0 +1,7 @@
+Main goal: 
+-Advanced equation solver library for general use 
+
+Requirements: 
+-Dynamically define process/problem instructions (like event system) 
+-Dynamically define members (functions, fractions, summation, nth deriv) 
+-

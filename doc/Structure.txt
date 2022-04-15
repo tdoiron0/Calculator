@@ -1,0 +1,30 @@
+-Case Base Class 
+  -Virtual factor/simplify/solve for/value/etc functions 
+  -Polynomial case class 
+  -Theorems classes 
+  -
+-Problem Class
+  -Base problem instruction class
+    -Tells how to solve problem 
+    -Virtual solve function that returns pointer to answer 
+      -Identify case tree (Ex: polynomial over binomial, Ex: trig identity over trig identity)
+      -
+    -Not defined by client, just there to help future me :)
+  -Base data class 
+    -Main function is to store data
+    -Function class 
+      -Member trees[]
+        -Root node is equal to operator
+          -If name on 1 side, nullptr
+        -Each node is an operator
+          -Could be add, sub, mult, divi... 
+          -Vector of pointers to member base classes 
+            -Could be a num, var, frac, function, summation 
+            -Most basic data in equation
+            -Again, not defined by client for same reason :)
+      -Identifier pointers[] 
+        -Meant to keep track of variables/functions/any other unknowns 
+      -Input pointers[] 
+        -Meant to keep track of input variables for easy value setting 
+        -Inputs not in unknown pointers list 
+      -Name

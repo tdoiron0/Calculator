@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="EquationNinja">
+      <UniqueIdentifier>{9B2F9FFE-07F0-1A35-D02A-64B23CAA5F11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EquationNinja\Debug">
+      <UniqueIdentifier>{51423339-BDA3-1047-4611-57F9B2714706}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EquationNinja\Exceptions">
+      <UniqueIdentifier>{AC5CD085-9881-1F06-C1CC-0496AD501E24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EquationNinja\Problem Datas">
+      <UniqueIdentifier>{A8730FED-1481-3DD3-9D67-39BE0974098A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EquationNinja\Problem Datas\Instr">
+      <UniqueIdentifier>{474EDB9C-B3BC-301C-FCA5-EB1B685326B8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EquationNinja\Problem Datas\Members">
+      <UniqueIdentifier>{62E75B5F-CEA0-C609-5700-E1E3C3B87C79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EquationNinja\Problem Datas\Members\Container">
+      <UniqueIdentifier>{B4D16616-2042-698F-E960-E3175590A190}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EquationNinja\Problem Datas\Members\Operator">
+      <UniqueIdentifier>{9D783ED7-898B-3E30-3275-1B1D1E67DB7D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\EquationNinja.h" />
+    <ClInclude Include="src\EquationNinja\Core.h">
+      <Filter>EquationNinja</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EquationNinja\Debug\Log.h">
+      <Filter>EquationNinja\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EquationNinja\Debug\Timer.h">
+      <Filter>EquationNinja\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EquationNinja\Exceptions\Converter Exceptions.h">
+      <Filter>EquationNinja\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EquationNinja\Exceptions\Exception.h">
+      <Filter>EquationNinja\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EquationNinja\ID.h">
+      <Filter>EquationNinja</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Container\Container.h">
+      <Filter>EquationNinja\Problem Datas\Members\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Container\Number.h">
+      <Filter>EquationNinja\Problem Datas\Members\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Conversions.h">
+      <Filter>EquationNinja\Problem Datas\Members</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\MemberBase.h">
+      <Filter>EquationNinja\Problem Datas\Members</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\ObjectFac.h">
+      <Filter>EquationNinja\Problem Datas\Members</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Operator\Add.h">
+      <Filter>EquationNinja\Problem Datas\Members\Operator</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Operator\Operator.h">
+      <Filter>EquationNinja\Problem Datas\Members\Operator</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EquationNinja\Problem Datas\Problem.h">
+      <Filter>EquationNinja\Problem Datas</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Relation\Relation.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Relation\Equal.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Container\Identifier.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Operator\Multiply.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Operator\Power.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Problem Structure\CaseFactory.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Problem Structure\Algebra\QuadraticCase.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Problem Structure\Case.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Operator\GCF.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Operator\Subtract.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Operator\Divide.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\EquationNinja\Debug\Log.cpp">
+      <Filter>EquationNinja\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EquationNinja\ID.cpp">
+      <Filter>EquationNinja</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EquationNinja\Problem Datas\Members\Container\Number.cpp">
+      <Filter>EquationNinja\Problem Datas\Members\Container</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EquationNinja\Problem Datas\Members\Conversions.cpp">
+      <Filter>EquationNinja\Problem Datas\Members</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EquationNinja\Problem Datas\Members\ObjectFac.cpp">
+      <Filter>EquationNinja\Problem Datas\Members</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EquationNinja\Problem Datas\Members\Operator\Add.cpp">
+      <Filter>EquationNinja\Problem Datas\Members\Operator</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EquationNinja\Problem Datas\Problem.cpp">
+      <Filter>EquationNinja\Problem Datas</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EquationNinja\Problem Datas\Members\Relation\Equal.cpp" />
+    <ClCompile Include="src\EquationNinja\Problem Datas\Members\Container\Identifier.cpp" />
+    <ClCompile Include="src\EquationNinja\Problem Datas\Members\Operator\Multiply.cpp" />
+    <ClCompile Include="src\EquationNinja\Problem Datas\Members\Operator\Power.cpp" />
+    <ClCompile Include="src\EquationNinja\Problem Datas\Problem Structure\Algebra\QuadraticCase.cpp" />
+    <ClCompile Include="src\EquationNinja\Problem Datas\Problem Structure\CaseFactory.cpp" />
+    <ClCompile Include="src\EquationNinja\Problem Datas\Members\Operator\GCF.cpp" />
+    <ClCompile Include="src\EquationNinja\Problem Datas\Members\Operator\Subtract.cpp" />
+    <ClCompile Include="src\EquationNinja\Problem Datas\Members\Operator\Divide.cpp" />
+  </ItemGroup>
+</Project>

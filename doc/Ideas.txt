@@ -1,0 +1,9 @@
+*Everything made of operators (exponent = multiplication operator) 
+*Search tree for member by type/value 
+*Processing members contain data necessary for processing 
+*Processing members return processed value from value() function 
+*Simplify gives value of root member 
+*Cases have functions for specific basic instructions (factor for polynomials) 
+
+*Operators are anything that does processing 
+*Identifiers are anything that refer to a value by a name 

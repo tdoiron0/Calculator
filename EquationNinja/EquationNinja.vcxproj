@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{9B2F9FFE-07F0-1A35-D02A-64B23CAA5F11}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>EquationNinja</RootNamespace>
+    <LatestTargetPlatformVersion>$([Microsoft.Build.Utilities.ToolLocationHelper]::GetLatestSDKTargetPlatformVersion('Windows', '10.0'))</LatestTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\bin\Debug-windows-x86\EquationNinja\</OutDir>
+    <IntDir>..\bin-int\Debug-windows-x86\EquationNinja\</IntDir>
+    <TargetName>EquationNinja</TargetName>
+    <TargetExt>.dll</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\bin\Release-windows-x86\EquationNinja\</OutDir>
+    <IntDir>..\bin-int\Release-windows-x86\EquationNinja\</IntDir>
+    <TargetName>EquationNinja</TargetName>
+    <TargetExt>.dll</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>EN_PLATFORM_WINDOWS;EN_BUILD_DLL;_WINDLL;EN_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\pugiXML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImportLibrary>..\bin\Debug-windows-x86\EquationNinja\EquationNinja.lib</ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Command>IF EXIST ..\bin\Debug-windows-x86\EquationNinja\EquationNinja.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86\EquationNinja\EquationNinja.dll ..\bin\Debug-windows-x86\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86\EquationNinja\EquationNinja.dll ..\bin\Debug-windows-x86\Sandbox &gt; nul)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>EN_PLATFORM_WINDOWS;EN_BUILD_DLL;_WINDLL;EN_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\pugiXML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImportLibrary>..\bin\Release-windows-x86\EquationNinja\EquationNinja.lib</ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Command>IF EXIST ..\bin\Release-windows-x86\EquationNinja\EquationNinja.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86\EquationNinja\EquationNinja.dll ..\bin\Release-windows-x86\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86\EquationNinja\EquationNinja.dll ..\bin\Release-windows-x86\Sandbox &gt; nul)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="src\EquationNinja.h" />
+    <ClInclude Include="src\EquationNinja\Core.h" />
+    <ClInclude Include="src\EquationNinja\Debug\Log.h" />
+    <ClInclude Include="src\EquationNinja\Debug\Timer.h" />
+    <ClInclude Include="src\EquationNinja\Exceptions\Converter Exceptions.h" />
+    <ClInclude Include="src\EquationNinja\Exceptions\Exception.h" />
+    <ClInclude Include="src\EquationNinja\ID.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Container\Container.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Container\Identifier.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Container\Number.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Conversions.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\MemberBase.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\ObjectFac.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Operator\Add.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Operator\Divide.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Operator\GCF.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Operator\Multiply.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Operator\Operator.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Operator\Power.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Operator\Subtract.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Relation\Equal.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Members\Relation\Relation.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Problem Structure\Algebra\QuadraticCase.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Problem Structure\Case.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Problem Structure\CaseFactory.h" />
+    <ClInclude Include="src\EquationNinja\Problem Datas\Problem.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\EquationNinja\Debug\Log.cpp" />
+    <ClCompile Include="src\EquationNinja\ID.cpp" />
+    <ClCompile Include="src\EquationNinja\Problem Datas\Members\Container\Identifier.cpp" />
+    <ClCompile Include="src\EquationNinja\Problem Datas\Members\Container\Number.cpp" />
+    <ClCompile Include="src\EquationNinja\Problem Datas\Members\Conversions.cpp" />
+    <ClCompile Include="src\EquationNinja\Problem Datas\Members\ObjectFac.cpp" />
+    <ClCompile Include="src\EquationNinja\Problem Datas\Members\Operator\Add.cpp" />
+    <ClCompile Include="src\EquationNinja\Problem Datas\Members\Operator\Divide.cpp" />
+    <ClCompile Include="src\EquationNinja\Problem Datas\Members\Operator\GCF.cpp" />
+    <ClCompile Include="src\EquationNinja\Problem Datas\Members\Operator\Multiply.cpp" />
+    <ClCompile Include="src\EquationNinja\Problem Datas\Members\Operator\Power.cpp" />
+    <ClCompile Include="src\EquationNinja\Problem Datas\Members\Operator\Subtract.cpp" />
+    <ClCompile Include="src\EquationNinja\Problem Datas\Members\Relation\Equal.cpp" />
+    <ClCompile Include="src\EquationNinja\Problem Datas\Problem Structure\CaseFactory.cpp" />
+    <ClCompile Include="src\EquationNinja\Problem Datas\Problem Structure\Algebra\QuadraticCase.cpp" />
+    <ClCompile Include="src\EquationNinja\Problem Datas\Problem.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="vendor\pugiXML\pugixml.vcxproj">
+      <Project>{0B40A9C9-771F-2865-8037-B33BEC958EC6}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
