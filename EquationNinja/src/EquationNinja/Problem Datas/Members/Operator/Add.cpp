@@ -11,8 +11,8 @@ namespace ENlib {
 		m_Category = MEM_OPERATOR;
 		m_Type = OPER_ADDITION;
 
-		m_Operands.push_back(std::shared_ptr<Member>(oper1));
-		m_Operands.push_back(std::shared_ptr<Member>(oper2));
+		m_Operands.push_back(oper1);
+		m_Operands.push_back(oper2);
 	}
 	Add::~Add() {
 
@@ -20,15 +20,7 @@ namespace ENlib {
 
 	//Convert and do associated process (in this case add)
 	Member* Add::process(Member* oper1, Member* oper2) {
-		if (convertable(oper1->getTypeMember(), oper2->getTypeMember())) {
-			Member* obj1 = convert(oper1, oper2->getTypeMember());
-			Member* obj2 = convert(oper2, obj1->getTypeMember());
-
-			return obj1->add(obj2);
-		}
-		else {
-			return new Add(oper1, oper2);
-		}
+		return oper1->add(oper2);
 	}
 	std::string Add::getString() {
 		std::string as_str = std::string("[ADD](");
@@ -46,29 +38,10 @@ namespace ENlib {
 		Add* as_add = (Add*)obj;
 		Add* result = new Add();
 
-		int index = 0; 
-		for (int i = 0; i < m_Operands.size(); i++) {
-			index = as_add->findCompatible(m_Operands[i].get()); 
+		result->apply(m_Operands);
+		result->apply(as_add->m_Operands);
 
-			if (index != -1) {
-				Member* obj1 = convert(m_Operands[i].get(), as_add->m_Operands[index]->getTypeMember());
-				Member* obj2 = convert(as_add->m_Operands[index].get(), obj1->getTypeMember());
-
-				result->apply(obj1->add(obj2));
-			}
-			else {
-				result->apply(m_Operands[i].get());
-			}
-		}
-
-		for (int i = 0; i < as_add->m_Operands.size(); i++) {
-			index = findCompatible(as_add->m_Operands[i].get()); 
-			if (index == -1) {
-				result->apply(as_add->m_Operands[i].get());
-			}
-		}
-
-		return result; 
+		return result->value();
 	}
 	Member* Add::sub(Member* obj) {
 		Add* as_add = (Add*)obj;
@@ -92,7 +65,7 @@ namespace ENlib {
 
 				for (int i = 0; i < m_Operands.size(); i++) {
 					if (m_Operands[i]->getTypeMember() != NUM_REAL) {
-						if (as_oper->find(m_Operands[i].get(), abstractIdentity) == -1) {
+						if (as_oper->find(m_Operands[i], abstractIdentity) == -1) {
 							return false;
 						}
 					}
@@ -104,7 +77,7 @@ namespace ENlib {
 				Operator* as_oper = (Operator*)obj;
 
 				for (int i = 0; i < m_Operands.size(); i++) {
-					if (as_oper->find(m_Operands[i].get(), abstractIdentity) == -1) {
+					if (as_oper->find(m_Operands[i], abstractIdentity) == -1) {
 						return false;
 					}
 				}

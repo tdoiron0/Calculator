@@ -7,7 +7,7 @@
 namespace ENlib {
 	class EN_API Operator : public Member {
 	public: 
-		std::vector<std::shared_ptr<Member>> m_Operands;
+		std::vector<Member*> m_Operands;
 
 		Operator() {}
 		~Operator() {}
@@ -33,7 +33,7 @@ namespace ENlib {
 		int findCompatible(Member* obj) {
 			for (int i = 0; i < m_Operands.size(); i++) {
 				if (convertable(m_Operands[i]->getTypeMember(), obj->getTypeMember())) {
-					Member* temp = convert(m_Operands[i].get(), obj->getTypeMember()); 
+					Member* temp = convert(m_Operands[i], obj->getTypeMember()); 
 					if (obj->equal(temp)) {
 						return i;
 					}
@@ -50,20 +50,32 @@ namespace ENlib {
 		}
 
 		Member* value() override {
-			Member* result; 
-
+			int index = 0;
 			for (int i = 0; i < m_Operands.size(); i++) {
-				result = process(result, m_Operands[i].get());
+				index = findCompatible(m_Operands[i]);
+
+				if (index != -1) {
+					Member* obj1 = convert(m_Operands[i], m_Operands[index]->getTypeMember());
+					Member* obj2 = convert(m_Operands[index], m_Operands[i]->getTypeMember());
+
+					m_Operands[i] = process(obj1, obj2);
+					m_Operands.erase(m_Operands.begin() + index);
+				}
 			}
 
-			return result;
+			if (m_Operands.size() == 1) {
+				return m_Operands[0];
+			}
+			else {
+				return this;
+			}
 		}
 
 		virtual Member* process(Member* oper1, Member* oper2) { return nullptr; }
 		virtual void apply(Member* oper) {
-			m_Operands.push_back(std::shared_ptr<Member>(oper));
+			m_Operands.push_back(oper);
 		}
-		virtual void apply(std::vector<std::shared_ptr<Member>>& oper) {
+		virtual void apply(std::vector<Member*>& oper) {
 			for (int i = 0; i < oper.size(); i++) {
 				m_Operands.push_back(oper[i]);
 			}

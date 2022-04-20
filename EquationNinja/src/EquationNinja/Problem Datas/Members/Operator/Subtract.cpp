@@ -9,16 +9,13 @@ namespace ENlib {
 		m_Category = MEM_OPERATOR;
 		m_Type = OPER_SUBTRACTION;
 
-		m_Operands.push_back(std::shared_ptr<Member>(oper1));
-		m_Operands.push_back(std::shared_ptr<Member>(oper2));
+		m_Operands.push_back(oper1);
+		m_Operands.push_back(oper2);
 	}
 	Subtract::~Subtract() {}
 
 	Member* Subtract::process(Member* oper1, Member* oper2) {
-		if (oper1->equal(oper2)) {
-			return oper1->sub(oper2);
-		}
-		return new Subtract(oper1, oper2);
+		return oper1->sub(oper2);
 	}
 	std::string Subtract::getString() {
 		std::string as_str = std::string("[SUBTRACT](");
@@ -33,7 +30,7 @@ namespace ENlib {
 	}
 
 	Member* Subtract::add(Member* obj) {
-		Subtract* as_sub = (Subtract*)obj;
+
 	}
 	Member* Subtract::sub(Member* obj) {
 
@@ -53,7 +50,7 @@ namespace ENlib {
 					int index = 0;
 					for (int i = 0; i < m_Operands.size(); i++) {
 						if (m_Operands[i]->getTypeMember() != NUM_REAL) {
-							index = as_oper->find(m_Operands[i].get(), abstractIdentity);
+							index = as_oper->find(m_Operands[i], abstractIdentity);
 							if (index != i) {
 								return false;
 							}
@@ -78,7 +75,7 @@ namespace ENlib {
 				if (as_oper->m_Operands.size() == m_Operands.size()) {
 					int index = 0;
 					for (int i = 0; i < m_Operands.size(); i++) {
-						index = as_oper->find(m_Operands[i].get(), abstractIdentity);
+						index = as_oper->find(m_Operands[i], abstractIdentity);
 						if (index != i) {
 							return false;
 						}
