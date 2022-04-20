@@ -11,6 +11,10 @@
 *.gch
 *.pch
 *.ipch
+*.opendb
+*.db
+*.db-shm
+*.db-wal
 
 # Compiled Dynamic libraries
 *.so
@@ -31,4 +35,3 @@
 *.exe
 *.out
 *.app
-*.opendb
