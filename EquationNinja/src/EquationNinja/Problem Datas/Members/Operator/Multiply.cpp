@@ -11,18 +11,15 @@ namespace ENlib {
 		m_Category = MEM_OPERATOR;
 		m_Type = OPER_MULTIPLY;
 
-		m_Operands.push_back(std::shared_ptr<Member>(oper1));
-		m_Operands.push_back(std::shared_ptr<Member>(oper2));
+		m_Operands.push_back(oper1);
+		m_Operands.push_back(oper2);
 	}
 	Mult::~Mult() {
 
 	}
 
 	Member* Mult::process(Member* oper1, Member* oper2) {
-		if (oper1->getTypeMember() == oper2->getTypeMember()) {
-			return oper1->mult(oper2);
-		}
-		return new Mult(oper1, oper2);
+		return oper1->mult(oper2);
 	}
 	std::string Mult::getString() {
 		std::string as_str = std::string("[MULTIPLY](");
@@ -38,48 +35,50 @@ namespace ENlib {
 
 	Member* Mult::add(Member* obj) {
 		Mult* as_mult = (Mult*)obj;
+		Mult* result = new Mult();
 
-		if (equal(as_mult)) {
-			Mult* result = new Mult();
+		int index = find(NUM_REAL);
+		result->apply(m_Operands[index]->add(as_mult->m_Operands[as_mult->find(NUM_REAL)]));
 
-			int index = 0;
-			for (int i = 0; i < m_Operands.size(); i++) {
-				index = as_mult->find(m_Operands[i].get());
-				if (index != -1 && m_Operands[i]->getTypeMember() == NUM_REAL) {
-					result->apply(m_Operands[i]->add(as_mult->m_Operands[index].get()));
-				}
-				else {
-					result->apply(m_Operands[i].get());
-				}
+		for (int i = 0; i < m_Operands.size(); i++) {
+			if (!m_Operands[i]->compatible(m_Operands[index], true)) {
+				result->apply(m_Operands[i]);
 			}
+		}
 
-			return result;
-		}
-		else {
-			return new Add(this, as_mult);
-		}
+		return result;
 	}
 	Member* Mult::sub(Member* obj) {
-		Member* obj_simp = obj->value();
-
 		return nullptr;
 	}
 	Member* Mult::mult(Member* obj) {
-		Member* obj_simp = obj->value();
+		Mult* as_mult = (Mult*)obj;
+		Mult* result = new Mult();
 
-		return nullptr;
+		int index = 0;
+		for each (Member* oper in m_Operands) {
+			if (oper->getTypeMember() != ID_VAR) {
+				index = as_mult->findCompatible(oper);
+				result->apply(Mult(oper, as_mult->m_Operands[index]).value());
+			}
+			else {
+				result->apply(oper);
+			}
+		}
+
+		return result; 
 	}
 	Member* Mult::divi(Member* obj) {
 		return nullptr;
 	}
-	bool Mult::equal(Member* obj, bool abstractIdentity) {
+	bool Mult::compatible(Member* obj, bool abstractIdentity) {
 		if (obj->getTypeMember() == m_Type) {
 			if (abstractIdentity) {
 				Operator* as_oper = (Operator*)obj;
 
 				for (int i = 0; i < m_Operands.size(); i++) {
 					if (m_Operands[i]->getTypeMember() != NUM_REAL) {
-						if (as_oper->find(m_Operands[i].get(), abstractIdentity) == -1) {
+						if (as_oper->find(m_Operands[i], abstractIdentity) == -1) {
 							return false;
 						}
 					}
@@ -91,7 +90,7 @@ namespace ENlib {
 				Operator* as_oper = (Operator*)obj;
 
 				for (int i = 0; i < m_Operands.size(); i++) {
-					if (as_oper->find(m_Operands[i].get(), abstractIdentity) == -1) {
+					if (as_oper->find(m_Operands[i], abstractIdentity) == -1) {
 						return false;
 					}
 				}

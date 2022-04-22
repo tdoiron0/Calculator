@@ -9,8 +9,8 @@ namespace ENlib {
 		m_Category = MEM_OPERATOR;
 		m_Type = OPER_DIVIDE;
 
-		m_Operands.push_back(std::shared_ptr<Member>(oper1));
-		m_Operands.push_back(std::shared_ptr<Member>(oper2));
+		m_Operands.push_back(oper1);
+		m_Operands.push_back(oper2);
 	}
 	Divide::~Divide() {}
 
@@ -33,32 +33,28 @@ namespace ENlib {
 	}
 
 	Member* Divide::add(Member* obj) {
-		if (equal(obj)) {
-			Divide* as_divi = (Divide*)obj;
-
-
-		}
+		return nullptr;
 	}
 	Member* Divide::sub(Member* obj) {
-
+		return nullptr;
 	}
 	Member* Divide::mult(Member* obj) {
-
+		return nullptr;
 	}
 	Member* Divide::divi(Member* obj) {
-
+		return nullptr;
 	}
-	bool Divide::equal(Member* obj, bool abstractIdentity = true) {
+	bool Divide::compatible(Member* obj, bool abstractIdentity = true) {
 		if (obj->getTypeMember() == m_Type) {
 			if (abstractIdentity) {
 				Operator* as_oper = (Operator*)obj;
 
-				return m_Operands[1]->equal(as_oper->m_Operands[1].get(), false);
+				return m_Operands[1]->compatible(as_oper->m_Operands[1], false);
 			}
 			else {
 				Operator* as_oper = (Operator*)obj;
 
-				return m_Operands[0]->equal(as_oper->m_Operands[0].get(), false) && m_Operands[1]->equal(as_oper->m_Operands[1].get(), false);;
+				return m_Operands[0]->compatible(as_oper->m_Operands[0], false) && m_Operands[1]->compatible(as_oper->m_Operands[1], false);;
 			}
 		}
 		else {

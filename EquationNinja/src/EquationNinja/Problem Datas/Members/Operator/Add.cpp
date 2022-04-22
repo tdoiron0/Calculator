@@ -1,6 +1,10 @@
 #include "Add.h"
 
+#include "../Container/Number.h"
+
 #include "Subtract.h"
+#include "Multiply.h"
+#include "Divide.h"
 
 namespace ENlib {
 	Add::Add() {
@@ -44,21 +48,24 @@ namespace ENlib {
 		return result->value();
 	}
 	Member* Add::sub(Member* obj) {
-		Add* as_add = (Add*)obj;
-		Subtract* result = new Subtract();
-
-		result->apply(m_Operands);
-		result->apply(as_add->m_Operands);
-
-		return result->value();
+		return nullptr;
 	}
 	Member* Add::mult(Member* obj) {
-		return nullptr;
+		Add* as_add = (Add*)obj;
+		Add* result = new Add();
+
+		for each (Member* oper1 in m_Operands) {
+			for each (Member* oper2 in as_add->m_Operands) {
+				result->apply(Mult(oper1, oper2).value());
+			}
+		}
+
+		return result->value();
 	}
 	Member* Add::divi(Member* obj) {
 		return nullptr;
 	}
-	bool Add::equal(Member* obj, bool abstractIdentity) {
+	bool Add::compatible(Member* obj, bool abstractIdentity) {
 		if (obj->getTypeMember() == m_Type) {
 			if (abstractIdentity) {
 				Operator* as_oper = (Operator*)obj;

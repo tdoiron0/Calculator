@@ -19,7 +19,7 @@ namespace ENlib {
 		Member* sub(Member* obj) override; 
 		Member* mult(Member* obj) override;
 		Member* divi(Member* obj) override; 
-		bool equal(Member* obj, bool abstractIdentity = true) override;
+		bool compatible(Member* obj, bool abstractIdentity = true) override;
 	private: 
 
 	};

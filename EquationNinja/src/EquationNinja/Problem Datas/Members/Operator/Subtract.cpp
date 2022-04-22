@@ -1,5 +1,7 @@
 #include "Subtract.h"
 
+#include "Add.h"
+
 namespace ENlib {
 	Subtract::Subtract() {
 		m_Category = MEM_OPERATOR;
@@ -30,18 +32,18 @@ namespace ENlib {
 	}
 
 	Member* Subtract::add(Member* obj) {
-
+		return nullptr;
 	}
 	Member* Subtract::sub(Member* obj) {
-
+		return nullptr;
 	}
 	Member* Subtract::mult(Member* obj) {
-
+		return nullptr;
 	}
 	Member* Subtract::divi(Member* obj) {
-
+		return nullptr;
 	}
-	bool Subtract::equal(Member* obj, bool abstractIdentity) {
+	bool Subtract::compatible(Member* obj, bool abstractIdentity) {
 		if (obj->getTypeMember() == m_Type) {
 			if (abstractIdentity) {
 				Operator* as_oper = (Operator*)obj;

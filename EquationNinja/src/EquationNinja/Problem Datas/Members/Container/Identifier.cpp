@@ -45,7 +45,7 @@ namespace ENlib {
 	Member* Ident::divi(Member* obj) {
 		return new Number(1.0);
 	}
-	bool Ident::equal(Member* obj, bool abstractIdentity) {
+	bool Ident::compatible(Member* obj, bool abstractIdentity) {
 		if (obj->getTypeMember() == m_Type) {
 			Ident* as_ident = (Ident*)obj;
 

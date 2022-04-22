@@ -32,7 +32,7 @@ namespace ENlib {
 	Member* Number::divi(Member* obj) {
 		return new Number(m_Value[0] / ((Number*)obj)->m_Value[0]);
 	}
-	bool Number::equal(Member* obj, bool abstractIdentity) {
+	bool Number::compatible(Member* obj, bool abstractIdentity) {
 		if (obj->getTypeMember() == m_Type) {
 			if (abstractIdentity) {
 				return true; 

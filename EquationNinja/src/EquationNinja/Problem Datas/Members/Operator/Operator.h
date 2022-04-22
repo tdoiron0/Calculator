@@ -14,7 +14,7 @@ namespace ENlib {
 
 		int find(Member* obj, bool abstractIdentity = true) {
 			for (int i = 0; i < m_Operands.size(); i++) {
-				if (m_Operands[i]->equal(obj, abstractIdentity)) {
+				if (m_Operands[i]->compatible(obj, abstractIdentity)) {
 					return i;
 				}
 			}
@@ -34,13 +34,13 @@ namespace ENlib {
 			for (int i = 0; i < m_Operands.size(); i++) {
 				if (convertable(m_Operands[i]->getTypeMember(), obj->getTypeMember())) {
 					Member* temp = convert(m_Operands[i], obj->getTypeMember()); 
-					if (obj->equal(temp)) {
+					if (obj->compatible(temp)) {
 						return i;
 					}
 				}
 				else if (convertable(obj->getTypeMember(), m_Operands[i]->getTypeMember())) {
 					Member* temp = convert(obj, m_Operands[i]->getTypeMember());
-					if (m_Operands[i]->equal(temp)) {
+					if (m_Operands[i]->compatible(temp)) {
 						return i;
 					}
 				}

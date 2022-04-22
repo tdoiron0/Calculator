@@ -42,7 +42,7 @@ namespace ENlib {
 		virtual Member* sub(Member* obj) { return nullptr; }
 		virtual Member* mult(Member* obj) { return nullptr; }
 		virtual Member* divi(Member* obj) { return nullptr; }
-		virtual bool equal(Member* obj, bool compareAbstractIdentity = true) = 0;
+		virtual bool compatible(Member* obj, bool compareAbstractIdentity = true) = 0;
 
 		//utility functions 
 		MemberType getTypeMember() { return m_Type; }
@@ -66,6 +66,6 @@ namespace ENlib {
 		Member* sub(Member* obj) override { return nullptr; }
 		Member* mult(Member* obj) override { return nullptr; }
 		Member* divi(Member* obj) override { return nullptr; }
-		bool equal(Member* obj, bool abs = false) override { return false; }
+		bool compatible(Member* obj, bool abs = false) override { return false; }
 	};
 }

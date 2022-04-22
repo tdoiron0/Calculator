@@ -14,19 +14,19 @@ namespace ENlib {
 		m_Category = MEM_OPERATOR;
 		m_Type = OPER_POWER;
 
-		m_Operands.push_back(std::shared_ptr<Member>(base));
-		m_Operands.push_back(std::shared_ptr<Member>(pow));
+		m_Operands.push_back(base);
+		m_Operands.push_back(pow);
 	}
 	Power::~Power() {
 
 	}
 
 	Member* Power::value() {
-		int count = ((Number*)(m_Operands[1].get()))->m_Value[0];
-		Member* result = m_Operands[0].get();
+		int count = ((Number*)(m_Operands[1]))->m_Value[0];
+		Member* result = m_Operands[0];
 
 		for (int i = 1; i < count; i++) {
-			result = result->mult(m_Operands[0].get());
+			result = result->mult(m_Operands[0]);
 		}
 
 		return result; 
@@ -43,36 +43,22 @@ namespace ENlib {
 	}
 
 	Member* Power::add(Member* obj) {
-		Member* obj_simp = obj->value(); 
 
-		if (equal(obj_simp)) {
-			return new Mult(new Number(2), this);
-		}
-		else {
-			return new Add(this, obj_simp);
-		}
 	}
 	Member* Power::sub(Member* obj) {
-		Member* obj_simp = obj->value();
-
-		if (equal(obj_simp)) {
-			return new Number(0);
-		}
-		else {
-
-		}
+		return nullptr;
 	}
 	Member* Power::mult(Member* obj) {
 
 	}
 	Member* Power::divi(Member* obj) {
-
+		return nullptr;
 	}
-	bool Power::equal(Member* obj, bool abstractIdentity) {
+	bool Power::compatible(Member* obj, bool abstractIdentity) {
 		if (obj->getTypeMember() == m_Type) {
 			Operator* as_oper = (Operator*)obj;
 
-			if (m_Operands[0]->equal(as_oper->m_Operands[0].get()) && m_Operands[1]->equal(as_oper->m_Operands[1].get())) {
+			if (m_Operands[0]->compatible(as_oper->m_Operands[0]) && m_Operands[1]->compatible(as_oper->m_Operands[1])) {
 				return true;
 			}
 			else {
