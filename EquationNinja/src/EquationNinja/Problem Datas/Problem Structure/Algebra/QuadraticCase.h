@@ -10,7 +10,7 @@ namespace ENlib {
 		~Quadratic();
 
 		Member* get() override;
-		Member* find(); 
+		Member* findCompatible(); 
 
 		Member* factor();
 		Member* factorGroup();

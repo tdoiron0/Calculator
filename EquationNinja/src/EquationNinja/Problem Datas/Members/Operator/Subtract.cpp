@@ -52,13 +52,13 @@ namespace ENlib {
 					int index = 0;
 					for (int i = 0; i < m_Operands.size(); i++) {
 						if (m_Operands[i]->getTypeMember() != NUM_REAL) {
-							index = as_oper->find(m_Operands[i], abstractIdentity);
+							index = as_oper->findCompatible(m_Operands[i], abstractIdentity);
 							if (index != i) {
 								return false;
 							}
 						}
 						else {
-							index = as_oper->find(NUM_REAL);
+							index = as_oper->findCompatible(NUM_REAL);
 							if (index != i) {
 								return false;
 							}
@@ -77,7 +77,7 @@ namespace ENlib {
 				if (as_oper->m_Operands.size() == m_Operands.size()) {
 					int index = 0;
 					for (int i = 0; i < m_Operands.size(); i++) {
-						index = as_oper->find(m_Operands[i], abstractIdentity);
+						index = as_oper->findCompatible(m_Operands[i], abstractIdentity);
 						if (index != i) {
 							return false;
 						}

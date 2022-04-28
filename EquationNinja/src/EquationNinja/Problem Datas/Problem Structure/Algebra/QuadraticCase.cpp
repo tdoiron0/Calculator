@@ -11,11 +11,11 @@ namespace ENlib {
 
 	Member* Quadratic::get() {
 		if (instruction == INSTRUCTION_FIND) {
-			return find();
+			return findCompatible();
 		}
 	}
 
-	Member* Quadratic::find() {
+	Member* Quadratic::findCompatible() {
 
 	}
 

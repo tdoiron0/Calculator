@@ -3,11 +3,11 @@
 namespace ENlib {
 	Divide::Divide() {
 		m_Category = MEM_OPERATOR;
-		m_Type = OPER_DIVIDE;
+		m_Type = OPER_DIVISION;
 	}
 	Divide::Divide(Member* oper1, Member* oper2) {
 		m_Category = MEM_OPERATOR;
-		m_Type = OPER_DIVIDE;
+		m_Type = OPER_DIVISION;
 
 		m_Operands.push_back(oper1);
 		m_Operands.push_back(oper2);

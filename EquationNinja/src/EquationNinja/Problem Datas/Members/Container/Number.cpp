@@ -32,24 +32,12 @@ namespace ENlib {
 	Member* Number::divi(Member* obj) {
 		return new Number(m_Value[0] / ((Number*)obj)->m_Value[0]);
 	}
-	bool Number::compatible(Member* obj, bool abstractIdentity) {
+	bool Number::compatible(Member* obj, MemberType operation) {
+		return obj->getTypeMember() == m_Type;
+	}
+	bool Number::equal(Member* obj) {
 		if (obj->getTypeMember() == m_Type) {
-			if (abstractIdentity) {
-				return true; 
-			}
-			else {
-				Number* as_num = ((Number*)obj);
-
-				if (as_num->m_Value[0] == m_Value[0]) {
-					return true;
-				}
-				else {
-					return false;
-				}
-			}
-		}
-		else {
-			return false;
+			return ((Number*)obj)->m_Value[0] == m_Value[0];
 		}
 	}
 }

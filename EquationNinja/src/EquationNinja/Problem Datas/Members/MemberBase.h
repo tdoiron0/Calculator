@@ -15,7 +15,7 @@ namespace ENlib {
 		NUM_CONSTANT, NUM_RATIONAL, NUM_REAL, NUM_INTEGER,
 		ID_VAR, 
 		CONT_VECTOR, CONT_MATRIX, 
-		OPER_ADDITION, OPER_SUBTRACTION, OPER_MULTIPLY, OPER_DIVIDE, OPER_POWER, OPER_GCF
+		OPER_ADDITION, OPER_SUBTRACTION, OPER_MULTIPLICATION, OPER_DIVISION, OPER_POWER, OPER_GCF
 	};
 	enum MemberCategory {
 		MEM_CONTAINER,
@@ -42,7 +42,8 @@ namespace ENlib {
 		virtual Member* sub(Member* obj) { return nullptr; }
 		virtual Member* mult(Member* obj) { return nullptr; }
 		virtual Member* divi(Member* obj) { return nullptr; }
-		virtual bool compatible(Member* obj, bool compareAbstractIdentity = true) = 0;
+		virtual bool compatible(Member* obj, MemberType operation) { return false; }
+		virtual bool equal(Member* obj) { return false; }
 
 		//utility functions 
 		MemberType getTypeMember() { return m_Type; }

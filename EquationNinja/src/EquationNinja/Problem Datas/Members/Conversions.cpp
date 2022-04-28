@@ -36,20 +36,20 @@ namespace ENlib {
 	Converter::Converter() {
 		MapRow newRow;
 
-		//All real number conversions 
+		//All Number conversions 
 		newRow.emplace(OPER_ADDITION, &num_to_add);
 		cMap.emplace(NUM_REAL, newRow);
 		newRow.clear();
 
-		//All identifier conversions 
-		newRow.emplace(OPER_MULTIPLY, &ident_to_mult);
+		//All Ident conversions 
+		newRow.emplace(OPER_MULTIPLICATION, &ident_to_mult);
 		newRow.emplace(OPER_POWER, &ident_to_pow);
 		newRow.emplace(ID_VAR, &ident_to_ident);
 		cMap.emplace(ID_VAR, newRow);
 		newRow.clear();
 
-		//All power conversions 
-		newRow.emplace(OPER_MULTIPLY, &ident_to_mult);
+		//All Power conversions 
+		newRow.emplace(OPER_MULTIPLICATION, &ident_to_mult);
 		cMap.emplace(OPER_POWER, newRow);
 		newRow.clear(); 
 	}

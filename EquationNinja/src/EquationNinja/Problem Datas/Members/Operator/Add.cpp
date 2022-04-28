@@ -65,35 +65,22 @@ namespace ENlib {
 	Member* Add::divi(Member* obj) {
 		return nullptr;
 	}
-	bool Add::compatible(Member* obj, bool abstractIdentity) {
+	bool Add::compatible(Member* obj, MemberType operation) {
+		return obj->getTypeMember() == m_Type;
+	}
+	bool Add::equal(Member* obj) {
 		if (obj->getTypeMember() == m_Type) {
-			if (abstractIdentity) {
-				Operator* as_oper = (Operator*)obj;
+			Add* as_add = (Add*)obj;
 
-				for (int i = 0; i < m_Operands.size(); i++) {
-					if (m_Operands[i]->getTypeMember() != NUM_REAL) {
-						if (as_oper->find(m_Operands[i], abstractIdentity) == -1) {
-							return false;
-						}
-					}
+			for (int i = 0; i < m_Operands.size(); i++) {
+				if (as_add->findEqual(m_Operands[i]) == -1) {
+					return false;
 				}
-
-				return true;
 			}
-			else {
-				Operator* as_oper = (Operator*)obj;
 
-				for (int i = 0; i < m_Operands.size(); i++) {
-					if (as_oper->find(m_Operands[i], abstractIdentity) == -1) {
-						return false;
-					}
-				}
+			return true;
+		}
 
-				return true;
-			}
-		}
-		else {
-			return false;
-		}
+		return false;
 	}
 }

@@ -12,37 +12,31 @@ namespace ENlib {
 		Operator() {}
 		~Operator() {}
 
-		int find(Member* obj, bool abstractIdentity = true) {
+		int findConvertable(Member* obj, MemberType operation) {
 			for (int i = 0; i < m_Operands.size(); i++) {
-				if (m_Operands[i]->compatible(obj, abstractIdentity)) {
+				if (m_Operands[i]->compatible(obj, operation)) {
 					return i;
 				}
-			}
-
-			return -1;
-		}
-		int find(MemberType target) {
-			for (int i = 0; i < m_Operands.size(); i++) {
-				if (m_Operands[i]->getTypeMember() == target) {
-					return i;
-				}
-			}
-
-			return -1;
-		}
-		int findCompatible(Member* obj) {
-			for (int i = 0; i < m_Operands.size(); i++) {
-				if (convertable(m_Operands[i]->getTypeMember(), obj->getTypeMember())) {
+				else if (convertable(m_Operands[i]->getTypeMember(), obj->getTypeMember())) {
 					Member* temp = convert(m_Operands[i], obj->getTypeMember()); 
-					if (obj->compatible(temp)) {
+					if (obj->compatible(temp, operation)) {
 						return i;
 					}
 				}
 				else if (convertable(obj->getTypeMember(), m_Operands[i]->getTypeMember())) {
 					Member* temp = convert(obj, m_Operands[i]->getTypeMember());
-					if (m_Operands[i]->compatible(temp)) {
+					if (m_Operands[i]->compatible(temp, operation)) {
 						return i;
 					}
+				}
+			}
+
+			return -1; 
+		}
+		int findEqual(Member* obj) {
+			for (int i = 0; i < m_Operands.size(); i++) {
+				if (obj->equal(m_Operands[i])) {
+					return i;
 				}
 			}
 
@@ -51,8 +45,9 @@ namespace ENlib {
 
 		Member* value() override {
 			int index = 0;
+
 			for (int i = 0; i < m_Operands.size(); i++) {
-				index = findCompatible(m_Operands[i]);
+				index = findConvertable(m_Operands[i], this->m_Type);
 
 				if (index != -1) {
 					Member* obj1 = convert(m_Operands[i], m_Operands[index]->getTypeMember());

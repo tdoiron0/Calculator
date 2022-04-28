@@ -43,30 +43,42 @@ namespace ENlib {
 	}
 
 	Member* Power::add(Member* obj) {
-
+		return this;
 	}
 	Member* Power::sub(Member* obj) {
 		return nullptr;
 	}
 	Member* Power::mult(Member* obj) {
-
+		m_Operands[1] = Add(m_Operands[1], ((Power*)obj)->m_Operands[1]).value();
+		return this;
 	}
 	Member* Power::divi(Member* obj) {
 		return nullptr;
 	}
-	bool Power::compatible(Member* obj, bool abstractIdentity) {
-		if (obj->getTypeMember() == m_Type) {
-			Operator* as_oper = (Operator*)obj;
 
-			if (m_Operands[0]->compatible(as_oper->m_Operands[0]) && m_Operands[1]->compatible(as_oper->m_Operands[1])) {
-				return true;
+	bool Power::compatible(Member* obj, MemberType operation) {
+		if (obj->getTypeMember() == m_Type) {
+			Power* as_pow = (Power*)obj;
+
+			if (operation == OPER_ADDITION) {
+				return m_Operands[0]->equal(as_pow->m_Operands[0]) && m_Operands[1]->equal(as_pow->m_Operands[1]);
 			}
 			else {
-				return false;
+				return m_Operands[0]->equal(as_pow->m_Operands[0]) && m_Operands[1]->compatible(as_pow->m_Operands[1], operation);
 			}
 		}
-		else {
-			return false;
+
+		return false; 
+	}
+	bool Power::equal(Member* obj) {
+		if (obj->getTypeMember() == m_Type) {
+			Power* as_pow = (Power*)obj;
+
+			if (m_Operands[0]->equal(as_pow->m_Operands[0]) && m_Operands[1]->equal(as_pow->m_Operands[1])) {
+				return true;
+			}
 		}
+
+		return false;
 	}
 }

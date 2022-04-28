@@ -34,30 +34,33 @@ namespace ENlib {
 	}
 
 	Member* Ident::add(Member* obj) {
-		return new Mult(new Number(2), new Ident(m_ID));
+		return this;
 	}
 	Member* Ident::sub(Member* obj) {
-		return new Number(0.0);
+		return this;
 	}
 	Member* Ident::mult(Member* obj) {
-		return new Power(this, new Number(2.0));
+		return this;
 	}
 	Member* Ident::divi(Member* obj) {
-		return new Number(1.0);
+		return this;
 	}
-	bool Ident::compatible(Member* obj, bool abstractIdentity) {
+
+	bool Ident::compatible(Member* obj, MemberType operation) {
 		if (obj->getTypeMember() == m_Type) {
 			Ident* as_ident = (Ident*)obj;
 
-			if (as_ident->m_ID == m_ID) {
-				return true;
+			return as_ident->m_ID == m_ID;
+		}
+	}
+	bool Ident::equal(Member* obj) {
+		if (obj->getTypeMember() == m_Type) {
+			if (((Ident*)obj)->linkedValue == nullptr || linkedValue == nullptr) {
+				return ((Ident*)obj)->m_ID == m_ID;
 			}
 			else {
-				return false;
+				return linkedValue->equal(((Ident*)obj)->linkedValue);
 			}
-		}
-		else {
-			return false;
 		}
 	}
 }
